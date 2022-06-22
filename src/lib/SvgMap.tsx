@@ -29,8 +29,10 @@ const RectCellMap = () => {
   })}
   </>
 }
-export const SvgMap = () => {
-  const imageSrc = "/demo.jpg"
+
+export const SvgMap: FC<{
+  imageSrc: string
+}> = ({ imageSrc }) => {
 
   return <svg
     version="1.1"
@@ -48,4 +50,10 @@ export const SvgMap = () => {
       href={imageSrc}
       preserveAspectRatio="xMinYMin slice" />
   </svg>
+}
+
+
+export const DemoSvgMap = () => {
+  const imageSrc = "/demo.jpg"
+  return <SvgMap imageSrc={imageSrc} />
 }
