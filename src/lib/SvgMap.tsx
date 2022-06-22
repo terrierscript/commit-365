@@ -52,7 +52,6 @@ export const SvgMap: FC<{
   </svg>
 }
 
-
 export const DemoSvgMap = () => {
   const imageSrc = "/demo.jpg"
   return <SvgMap imageSrc={imageSrc} />
