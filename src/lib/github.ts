@@ -1,21 +1,24 @@
 import { graphql } from "@octokit/graphql"
 
-export const userGraph = async (username: string) => {
-  const result = await graphql<{
-    user: {
-      contributionsCollection: {
-        contributionCalendar: {
-          totalContributions: number,
-          week: {
-            contributionDays: {
-              contributionCount: number,
-              date: string
-            }
-          }
-        }
+export type WeekResult = {
+  contributionDays: {
+    contributionCount: number,
+    date: string
+  }[]
+}[]
+
+export type GraphResult = {
+  user: {
+    contributionsCollection: {
+      contributionCalendar: {
+        totalContributions: number,
+        weeks: WeekResult
       }
     }
-  }>(`
+  }
+}
+export const userGraph = async (username: string): Promise<WeekResult> => {
+  const result = await graphql<GraphResult>(`
     query($userName:String!) { 
       user(login: $userName){
         contributionsCollection {
@@ -37,5 +40,5 @@ export const userGraph = async (username: string) => {
       authorization: `token ${process.env.GITHUB_API_TOKEN}`
     }
   })
-  return result.user.contributionsCollection
+  return result.user.contributionsCollection.contributionCalendar.weeks
 }

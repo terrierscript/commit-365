@@ -1,21 +1,24 @@
 import { Box } from "@chakra-ui/react"
 import { GetServerSideProps } from "next"
-import { userGraph } from "../lib/github"
+import { FC } from "react"
+import { GraphResult, userGraph, WeekResult } from "../lib/github"
 import { DemoSvgMap, SvgMap } from "../lib/SvgMap"
 
-export const Page = ({ graph }) => {
-  console.log({ graph })
-  // const imageSrc = "https://raw.githubusercontent.com/terrierscript/terrierscript/master/dog.jpg?raw=true"
+
+export const Page: FC<{ week: WeekResult }> = ({ week }) => {
+
+  const imageSrc = "https://raw.githubusercontent.com/terrierscript/terrierscript/master/dog.jpg"
   return <Box>
-    <DemoSvgMap />
+    <SvgMap imageSrc={imageSrc}
+      week={week}
+    />
   </Box>
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const graph = await userGraph("terrierscript")
-  console.log({ graph })
+  const week = await userGraph("terrierscript")
   return {
-    props: { graph }
+    props: { week }
   }
 }
 
