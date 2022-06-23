@@ -23,7 +23,7 @@ export type GraphResult = {
   }
 }
 
-export const getUserContributionWeekGraph = async (username: string, day: number): Promise<WeekResult> => {
+export const getUserContributionWeekGraph = async (username: string, day: number = 365): Promise<WeekResult> => {
   console.log(day)
   const start = subDays(new Date(), day).toISOString()
   const end = new Date().toISOString()

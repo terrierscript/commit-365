@@ -13,6 +13,7 @@ export default function Home() {
         <VStack>
           <Input placeholder="username"></Input>
           <Input placeholder="image url" type="url"></Input>
+          <Input placeholder="image url" type="url"></Input>
         </VStack>
       </Box>
     </Box>
