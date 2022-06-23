@@ -11,7 +11,7 @@ const RectCell: FC<RectProps> = ({ x, y, size, level }) => {
   const levelToColor = useMemo(() => {
     switch (level) {
       case "NONE":
-        return "#fff3"
+        return "#fff1"
       case "FIRST_QUARTILE":
         return "#fff6"
       case "SECOND_QUARTILE":
@@ -64,7 +64,7 @@ export const SvgMap: FC<{
 }> = ({ imageSrc, week }) => {
   const size = 10
   const gap = 1
-  const padding = size * 2
+  const padding = size
   const { width, height } = {
     width: (week.length + 1) * (size + gap) + padding * 2,
     height: 7 * (size + gap) + padding * 2,
@@ -77,7 +77,7 @@ export const SvgMap: FC<{
   >
     <defs>
       <mask id="mask">
-        <rect x="0" y="0" width={width} height={height} fill="#ffffff22" />
+        {/* <rect x="0" y="0" width={width} height={height} fill="#ffffff11" /> */}
         <RectCellMap week={week} size={size} gap={gap} padding={padding} />
       </mask>
     </defs>
