@@ -64,10 +64,10 @@ export const SvgMap: FC<{
   week: WeekResult
 }> = ({ imageSrc, week }) => {
   const size = 20
-  const gap = 2
-  const padding = 5
+  const gap = size / 5
+  const padding = size / 4
   const { width, height } = {
-    width: (week.length + 1) * (size + gap) + padding * 2,
+    width: (week.length) * (size + gap) + padding * 2,
     height: 7 * (size + gap) + padding * 2,
   }
   return <svg

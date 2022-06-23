@@ -1,17 +1,12 @@
 import { NextApiHandler } from "next"
 
 import * as ReactDOMServer from 'react-dom/server'
-import { z } from "zod"
 import { getUserContributionWeekGraph } from "../../../lib/github"
+import { SvgGraphParams } from "../../../lib/SvgGraphParams"
 import { SvgMap } from "../../../lib/SvgMap"
 
-const Params = z.object({
-  url: z.string(),
-  username: z.string(),
-  day: z.string().optional()
-})
 const handler: NextApiHandler = async (req, res) => {
-  const { url, username, day } = Params.parse(req.query)
+  const { url, username, day } = SvgGraphParams.parse(req.query)
 
   const week = await getUserContributionWeekGraph(username, Number(day) || 365)
 
