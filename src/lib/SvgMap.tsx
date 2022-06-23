@@ -29,13 +29,13 @@ const RectCell: FC<RectProps> = ({ x, y, size, level }) => {
     rx={3} ry={3} />
 }
 const RectCellMap: FC<{
-  week: WeekResult,
+  weeks: WeekResult,
   size: number,
   gap: number,
   padding: number,
-}> = ({ week, size, gap, padding }) => {
-  const cells = week.map((w, weekIdx) => {
-    return w.contributionDays.map((day, dayIdx) => {
+}> = ({ weeks, size, gap, padding }) => {
+  const cells = weeks.map((week, weekIdx) => {
+    return week.contributionDays.map((day, dayIdx) => {
       const wd = dayIdx
       const w = weekIdx
       const level = day.contributionLevel
@@ -78,7 +78,7 @@ export const SvgMap: FC<{
     <defs>
       <mask id="mask">
         {/* <rect x="0" y="0" width={width} height={height} fill="#ffffff11" /> */}
-        <RectCellMap week={week} size={size} gap={gap} padding={padding} />
+        <RectCellMap weeks={week} size={size} gap={gap} padding={padding} />
       </mask>
     </defs>
     <image

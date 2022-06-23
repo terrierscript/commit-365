@@ -8,7 +8,7 @@ import { SvgMap } from "../lib/SvgMap"
 export const Page: FC<{ week: WeekResult }> = ({ week }) => {
 
   // const imageSrc = "https://user-images.githubusercontent.com/13282103/175295262-beaecaac-58a4-4742-ada1-77020ccb3435.jpg"
-  const imageSrc = "https://user-images.githubusercontent.com/13282103/175295879-5b48fc89-bd1d-43b2-800f-85b0d65dccf4.jpg"
+  const imageSrc = "https://user-images.githubusercontent.com/13282103/175301134-49eaaf63-9488-4408-b850-52563c7e2ef8.jpg"
   return <Box>
     <SvgMap imageSrc={imageSrc}
       week={week}
