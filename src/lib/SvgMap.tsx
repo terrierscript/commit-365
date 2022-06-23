@@ -76,14 +76,15 @@ export const SvgMap: FC<{
     // xmlns:xlink="http://www.w3.org/1999/xlink"
     {...{ width, height }}
   >
+    {/* TODO: blocked by CSP */}
     {/* <style type="text/css">{
       `
-      #base:hover {
-        opacity:0.5;
-      }
-      #base {
-        opacity: 0;
+      #img{
+        opacity: 1;
         transition: 1s;
+      }
+      #img:hover {
+        opacity: 0.5;
       }
       `
     }
@@ -94,16 +95,16 @@ export const SvgMap: FC<{
         <RectCellMap weeks={week} size={size} gap={gap} padding={padding} />
       </mask>
     </defs>
-    <image
-      mask={"url(#mask)"}
-      {...{ width, height }}
-      href={imageSrc}
-      preserveAspectRatio="xMidYMid slice" />
     {/* <image
       id="base"
       {...{ width, height }}
       href={imageSrc}
       preserveAspectRatio="xMidYMid slice" /> */}
+    <image
+      mask={"url(#mask)"}
+      {...{ width, height }}
+      href={imageSrc}
+      preserveAspectRatio="xMidYMid slice" />
   </svg>
 }
 
