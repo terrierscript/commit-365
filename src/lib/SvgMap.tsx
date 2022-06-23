@@ -76,7 +76,7 @@ export const SvgMap: FC<{
     // xmlns:xlink="http://www.w3.org/1999/xlink"
     {...{ width, height }}
   >
-    <style type="text/css">{
+    {/* <style type="text/css">{
       `
       #base:hover {
         opacity:0.5;
@@ -87,7 +87,7 @@ export const SvgMap: FC<{
       }
       `
     }
-    </style>
+    </style> */}
     <defs>
       <mask id="mask">
         {/* <rect x="0" y="0" width={width} height={height} fill="#ffffff11" /> */}
@@ -99,11 +99,11 @@ export const SvgMap: FC<{
       {...{ width, height }}
       href={imageSrc}
       preserveAspectRatio="xMidYMid slice" />
-    <image
+    {/* <image
       id="base"
       {...{ width, height }}
       href={imageSrc}
-      preserveAspectRatio="xMidYMid slice" />
+      preserveAspectRatio="xMidYMid slice" /> */}
   </svg>
 }
 
