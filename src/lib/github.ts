@@ -23,14 +23,16 @@ export type GraphResult = {
 }
 
 export const userGraph = async (username: string): Promise<WeekResult> => {
-  // const start = subDays(new Date(), 7 * 8).toISOString()
-  // const end = new Date().toISOString()
-  //         // contributionsCollection(from: "${start}", to: "${end}") {
+  const start = subDays(new Date(), 180).toISOString()
+  const end = new Date().toISOString()
+  //         // 
 
+  // contributionsCollection{
   const result = await graphql<GraphResult>(`
     query($userName:String!) { 
       user(login: $userName){
-        contributionsCollection{
+        contributionsCollection(from: "${start}", to: "${end}") {
+
           contributionCalendar {
             totalContributions
             weeks {
