@@ -1,4 +1,4 @@
-import { Image, Box, Button, Container, Heading, Input, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, VStack, Code } from '@chakra-ui/react'
+import { Image, Box, Button, Container, Heading, Input, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, VStack, Code, Spinner } from '@chakra-ui/react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
@@ -50,6 +50,7 @@ export default function Home() {
               <Image src={url} onLoad={() => { setLoad(false) }}
                 display={load ? "none" : "block"}
               />
+              {load && <Spinner />}
               <Code userSelect={"all"} p={4}>
                 [![Contribution Graph]({url})](https://commit-365.vercel.app/)
               </Code>

@@ -25,6 +25,7 @@ const handler: NextApiHandler = async (req, res) => {
     week={week} />)
   res
     .status(200)
+    .setHeader("Cache-Control", "public, max-age=3600")
     .setHeader("Content-Type", "image/svg+xml")
     .send(domSvg)
 }
