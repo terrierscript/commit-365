@@ -10,7 +10,8 @@ const handler: NextApiHandler = async (req, res) => {
 
   const week = await getUserContributionWeekGraph(username, Number(day) || 365)
 
-  const domSvg = ReactDOMServer.renderToString(<SvgMap imageSrc={url} week={week} />)
+  const proxyUrl = `/api/img?url=${url}`
+  const domSvg = ReactDOMServer.renderToString(<SvgMap imageSrc={proxyUrl} week={week} />)
   res
     .status(200)
     .setHeader("Content-Type", "image/svg+xml")
