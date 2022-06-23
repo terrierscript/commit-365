@@ -7,4 +7,8 @@ export const SvgGraphParams = z.object({
   day: z.string().optional()
 })
 
-export type SvgGraphParamType = z.infer<typeof SvgGraphParams>
+export const SvgGraphStrictParams = SvgGraphParams.extend({
+  day: z.number()
+})
+
+export type SvgGraphStrictParamType = z.infer<typeof SvgGraphStrictParams>

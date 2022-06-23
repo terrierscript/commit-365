@@ -3,14 +3,18 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { SvgGraphParamType } from '../lib/SvgGraphParams'
+import { SvgGraphStrictParamType } from '../lib/SvgGraphParams'
 
 export default function Home() {
   const router = useRouter()
-  const { register, handleSubmit } = useForm<SvgGraphParamType>()
+  const { register, handleSubmit } = useForm<SvgGraphStrictParamType>()
   const submit = handleSubmit(data => {
     const { username, ...params } = data
-    router.push(`/api/svg/${username}?${new URLSearchParams(params).toString()}`)
+    const stringParam = {
+      ...params,
+      day: params.day.toString()
+    }
+    router.push(`/api/svg/${username}?${new URLSearchParams(stringParam).toString()}`)
   })
   return (
     <Box>
