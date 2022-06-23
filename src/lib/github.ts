@@ -23,8 +23,9 @@ export type GraphResult = {
   }
 }
 
-export const getUserContributionWeekGraph = async (username: string): Promise<WeekResult> => {
-  const start = subDays(new Date(), 90).toISOString()
+export const getUserContributionWeekGraph = async (username: string, day: number): Promise<WeekResult> => {
+  console.log(day)
+  const start = subDays(new Date(), day).toISOString()
   const end = new Date().toISOString()
   //         // 
 
@@ -55,17 +56,4 @@ export const getUserContributionWeekGraph = async (username: string): Promise<We
     }
   })
   return result.user.contributionsCollection.contributionCalendar.weeks
-}
-
-const weekMapToMinimap = (weekResult: WeekResult) => {
-  return weekResult.map(week => {
-    return week.contributionDays.map(day => {
-      day.
-      // return {
-      //   date: day.date,
-      //   contributionCount: day.contributionCount,
-      //   contributionLevel: day.contributionLevel
-      // }
-    })
-  })
 }

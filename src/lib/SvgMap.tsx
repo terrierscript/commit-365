@@ -36,8 +36,8 @@ const RectCellMap: FC<{
 }> = ({ weeks, size, gap, padding }) => {
   const cells = weeks.map((week, weekIdx) => {
     return week.contributionDays.map((day, dayIdx) => {
-      console.log(week, day)
-      const wd = dayIdx
+      // console.log(week, day)
+      const wd = day.weekday
       const w = weekIdx
       const level = day.contributionLevel
       return { w, wd, level }

@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react"
 import { GetServerSideProps } from "next"
 import { FC } from "react"
-import { userGraph, WeekResult } from "../lib/github"
+import { getUserContributionWeekGraph, WeekResult } from "../lib/github"
 import { SvgMap } from "../lib/SvgMap"
 
 
@@ -17,7 +17,7 @@ export const Page: FC<{ week: WeekResult }> = ({ week }) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const week = await userGraph("terrierscript")
+  const week = await getUserContributionWeekGraph("terrierscript")
   return {
     props: { week }
   }
