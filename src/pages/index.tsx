@@ -28,7 +28,7 @@ export default function Home() {
               <Heading>Commit 365</Heading>
               <Box>Generate contribution graph svg with your lovely image</Box>
               <Input {...register("username")} placeholder="username"></Input>
-              <Input {...register("url")} placeholder="image url ( < 1kb)" type="url"></Input>
+              <Input {...register("url")} placeholder="image url ( < 1mb)" type="url"></Input>
               <NumberInput defaultValue={365} min={0}>
                 <NumberInputField  {...register("day")} placeholder={"day"} />
                 <NumberInputStepper>
