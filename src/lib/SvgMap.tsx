@@ -36,6 +36,7 @@ const RectCellMap: FC<{
 }> = ({ weeks, size, gap, padding }) => {
   const cells = weeks.map((week, weekIdx) => {
     return week.contributionDays.map((day, dayIdx) => {
+      console.log(week, day)
       const wd = dayIdx
       const w = weekIdx
       const level = day.contributionLevel
@@ -62,9 +63,9 @@ export const SvgMap: FC<{
   imageSrc: string,
   week: WeekResult
 }> = ({ imageSrc, week }) => {
-  const size = 10
-  const gap = 1
-  const padding = size
+  const size = 20
+  const gap = 2
+  const padding = 5
   const { width, height } = {
     width: (week.length + 1) * (size + gap) + padding * 2,
     height: 7 * (size + gap) + padding * 2,
