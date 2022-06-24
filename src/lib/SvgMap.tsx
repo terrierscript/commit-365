@@ -61,8 +61,9 @@ const RectCellMap: FC<{
 
 export const SvgMap: FC<{
   imageSrc: string,
+  background?: string,
   week: WeekResult
-}> = ({ imageSrc, week }) => {
+}> = ({ imageSrc, week, background = "transparent" }) => {
   const size = 20
   const gap = size / 5
   const padding = size / 4
@@ -100,6 +101,7 @@ export const SvgMap: FC<{
       {...{ width, height }}
       href={imageSrc}
       preserveAspectRatio="xMidYMid slice" /> */}
+    <rect {...{ width, height }} fill={background} ></rect>
     <image
       mask={"url(#mask)"}
       {...{ width, height }}
